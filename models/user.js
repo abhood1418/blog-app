@@ -1,14 +1,13 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-const Post = new Schema(
+const User = new Schema(
   {
     username: { type: String, required: true },
     imgURL: { type: String},
-    content: { type: String, required: true },
-    hastags: { type: String }
+    password: {type: String, required: true }
   },
   { timestamps: true }
 )
 
-export default mongoose.model('posts', Post)
+export default mongoose.model('users', User)

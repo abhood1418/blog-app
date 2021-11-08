@@ -4,9 +4,15 @@ const Schema = mongoose.Schema
 const Post = new Schema(
   {
     username: { type: String, required: true },
+    title: { type: String, required: true },
     imgURL: { type: String},
     content: { type: String, required: true },
-    hastags: { type: String }
+    hashtags: [{ type: String }],
+    comments: [{
+      user: { type: String },
+      userImgURL: { type: String },
+      comment: { type: String },
+    },]
   },
   { timestamps: true }
 )

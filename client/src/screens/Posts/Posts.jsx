@@ -21,9 +21,8 @@ const Posts = () => {
   return (
     <Layout>
       <div className='posts'>
-        {searchResult.map((post, index) => {
-          return (
-            <Post
+        {posts.map((post, index) => {
+          <PostCard
             _id={post._id}
             username={post.username}
             title={post.title}
@@ -32,8 +31,7 @@ const Posts = () => {
             hashtags={post.hashtags}
             comments={post.comments}
             key={index}
-            />
-          )
+          />
         })}
       </div>
     </Layout>

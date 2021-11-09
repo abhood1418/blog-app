@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, Redirect } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import Layout from "../../components/Layout/Layout"
 import { getPost, updatePost } from '../../services/posts'
 
@@ -38,7 +38,7 @@ const PostEdit = (props) => {
     }
   
     if (isUpdated) {
-      return <Redirect to={`/posts/${id}`} />
+      return <Navigate to={`/posts/${id}`} />
     }
   
     return (
@@ -98,5 +98,5 @@ const PostEdit = (props) => {
     )
   }
   
-  export default ProductEdit
+  export default PostEdit
   

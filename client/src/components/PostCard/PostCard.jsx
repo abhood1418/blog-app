@@ -8,17 +8,16 @@ const PostCard = (props) => {
             
             <div>{props.username}</div> 
             <div>{props.title}</div> 
-            <img  src={props.imgURL} alt={props.title} /> 
-            <div>{props.content}</div> 
-            <div>{props.hashtags}</div> 
-            <div>{props.comments}</div> 
+            {/* <img  src={props.imgURL} alt={props.title} />  */}
+            {/* <div>{props.content}</div>  */}
+            {/* <div>{props.hashtags}</div>  */}
+            {/* <div>{props.comments}</div>  */}
 
 
              {/* <Commments data={}/> */}
 
 
                 {/* <img className="post-card-image" src={props.imgURL} alt={props.name} /> */}
-                <div>View</div>
             </Link>
         </div>
     )

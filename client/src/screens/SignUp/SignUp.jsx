@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import {Link, Navigate} from 'react-router-dom'
 import { createUser, getUsers } from '../../services/users'
+import './SignUp.css'
 
 const SignUp = ({setUser, setLoggedIn, user}) => {
   const [username, setUsername] = useState('')
@@ -53,8 +54,8 @@ const SignUp = ({setUser, setLoggedIn, user}) => {
   }
 
   return (
-    <div>
-      <form onSubmit={(ev) => handleSubmit(ev)}>
+    <div className='signUp-display-div'>
+      <form onSubmit={(ev) => handleSubmit(ev)} className='signUp-form'>
         <label>Username: </label>
         <input placeholder='Username' value={username} onChange={(ev) => setUsername(ev.target.value)} />
         <br />
@@ -67,7 +68,7 @@ const SignUp = ({setUser, setLoggedIn, user}) => {
         <label>Profile Picture: </label>
         <input placeholder='Image URL' value={imgURL} onChange={(ev) => setImgURL(ev.target.value)}/>
         <br/>
-        <input type='submit'/>
+        <input type='submit' value='Create Account'/>
       </form>
       <br />
       <Link to='/'><div>Back to Sign In</div></Link>

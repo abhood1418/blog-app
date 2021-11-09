@@ -18,7 +18,6 @@ const PostCard = (props) => {
 
 
                 {/* <img className="post-card-image" src={props.imgURL} alt={props.name} /> */}
-                <div>View</div>
             </Link>
         </div>
     )

@@ -34,9 +34,10 @@ const PostDetail = (props) => {
           <h5 className="user-header">{post.username}</h5>
           {/* <img src={users.imageURL}/> */}
           <hr />
-        <img className="post-detail-image" src={post.imgURL} alt={post.title} />
+        {post.imgURL.includes('https') ? <img className="post-detail-image" src={post.imgURL} alt={post.title} /> : null}
         <section className="text-sect">
         <h1>{post.title}</h1>
+
         <p>{post.content}</p>
         <p className="hashtags">{post.hashtags}</p>
         </section>

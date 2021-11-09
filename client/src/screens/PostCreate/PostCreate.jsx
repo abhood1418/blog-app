@@ -6,12 +6,13 @@ import Layout from "../../components/Layout/Layout";
 
 const PostCreate = (props) => {
   const [post, setPost] = useState({
-    username: props.user.username,
-    title: "",
-    imgURL: "",
-    content: "",
-    hashtags: "",
-  });
+    'username': `${props.user.username}`,
+    'title': '',
+    'imgURL': '',
+    'content': '',
+    'hashtags': [],
+    'comments': []
+  })
 
   const [isCreated, setCreated] = useState(false);
 
@@ -71,20 +72,19 @@ const PostCreate = (props) => {
           required
           onChange={handleChange}
         />
-        <input
-          className="input-hashtags"
-          placeholder="Image Link"
-          value={post.imgURL}
-          name="imgURL"
-          required
-          onChange={handleChange}
-        />
-        <button type="submit" className="submit-button">
-          Submit
-        </button>
-      </form>
-    </Layout>
-  );
-};
+
+        {/* <input
+            className="input-hashtags"
+            placeholder='Hashtag'
+            value={post.hashtags}
+            name='hashtags'
+            required
+            onChange={handleChange}
+        /> */}
+        <button type='submit' className="submit-button">Submit</button>
+    </form>
+</Layout>
+  )
+}
 
 export default PostCreate;

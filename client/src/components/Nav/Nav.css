@@ -1,0 +1,16 @@
+nav {
+  background-color: rgb(56, 56, 56);
+  display: flex;
+  justify-content: space-evenly;
+  border-width: 1px;
+  border-radius: 5px;
+  border-style: dashed;
+
+}
+
+.nav-button {
+	background-color: rgb(228, 221, 207);
+  border-style: solid;
+  border-width: px;
+  border-color:rgb(175, 175, 175) ;
+}

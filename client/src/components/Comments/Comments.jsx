@@ -7,6 +7,8 @@ function Comments (props) {
 	return (
     <div className="comments-section">
       <h3>Comments</h3>
+
+
       <div>
         {props.post.comments.map((comment) => (
           <div key={comment._id}>
@@ -14,6 +16,7 @@ function Comments (props) {
             <div>{comment.user}</div>
             <div>{comment.comment}</div>
           </div>
+
         ))}
       </div>
     </div>

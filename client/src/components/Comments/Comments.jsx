@@ -6,11 +6,11 @@ function Comments(props) {
     <div className="comments-section">
       <h3>Comments</h3>
       <ul>
-        {gamePosts.map((gamePosts) => (
+        {postMessage.Comments.map((gamePosts) => (
           <Link
             to={`/gamePosts/${gamePosts.id}`}
             key={gamePosts.id}
-            className="post-Links"
+            className="post-"
           >
             <li>{gamePosts.fields.playerName}</li>
           </Link>

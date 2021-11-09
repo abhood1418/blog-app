@@ -7,17 +7,8 @@ function Comments (props) {
 	return (
     <div className="comments-section">
       <h3>Comments</h3>
-<<<<<<< HEAD
-      <ul>
-        {postMessage.Comments.map((gamePosts) => (
-          <Link
-            to={`/gamePosts/${gamePosts.id}`}
-            key={gamePosts.id}
-            className="post-"
-          >
-            <li>{gamePosts.fields.playerName}</li>
-          </Link>
-=======
+
+
       <div>
         {props.post.comments.map((comment) => (
           <div key={comment._id}>
@@ -25,7 +16,7 @@ function Comments (props) {
             <div>{comment.user}</div>
             <div>{comment.comment}</div>
           </div>
->>>>>>> 0ce689739c3f2585032a09d7d0a99bdd2bdabc8d
+
         ))}
       </div>
     </div>

@@ -1,4 +1,3 @@
-// Dayanna 
 import { useState } from "react";
 import { Navigate } from 'react-router-dom'
 import { createPost } from "../../services/posts"
@@ -6,11 +5,11 @@ import Layout from "../../components/Layout/Layout"
 
 const PostCreate = (props) => {
   const [post, setPost] = useState({
-    username: props.user.username,
-    title: '',
-    imgURL: '',
-    content: '',
-    hashtags: '',
+    'username': `${props.user.username}`,
+    'title': '',
+    'imgURL': '',
+    'content': [],
+    'hashtags': [],
   })
 
   const [isCreated, setCreated] = useState(false)
@@ -35,18 +34,9 @@ const PostCreate = (props) => {
 
   return (
     // <h1>This is PostCreate</h1>
-    <Layout>
+    <Layout >
     <form className="create-form" onSubmit={handleSubmit}>
-        {/* <input
-            className="input-name"
-            placeholder='Name'
-            value={product.name}
-            name='name'
-            required
-            autoFocus
-            onChange={handleChange}
-        /> */}
-        <input
+         <input
             className="input-title"
             placeholder='Title'
             value={post.title}
@@ -73,9 +63,9 @@ const PostCreate = (props) => {
         />
         <input
             className="input-hashtags"
-            placeholder='Image Link'
-            value={post.imgURL}
-            name='imgURL'
+            placeholder='hashtags'
+            value={post.hashtags}
+            name='hashtags'
             required
             onChange={handleChange}
         />

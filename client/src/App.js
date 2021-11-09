@@ -15,7 +15,8 @@ const App = () => {
   return (
     <div className="app">
       <Routes>
-        <Route exact path="/" element={loggedIn ? <Home /> : <SignIn user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+        <Route exact path="/"
+          element={loggedIn ? <Home user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> : <SignIn user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         <Route exact path="/posts" element={<Posts user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={ setLoggedIn}/>} />
         <Route path="/post-create" element={<PostCreate user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
         <Route exact path="/posts/:id" element={<PostDetail user={user} setUser={setUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />

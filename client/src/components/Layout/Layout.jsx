@@ -9,6 +9,7 @@ function Layout(props) {
 	return (
 		<div>
 			<Nav />
+
 			<Footer />
 		</div>
 	)

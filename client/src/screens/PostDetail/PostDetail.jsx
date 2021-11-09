@@ -30,7 +30,7 @@ const PostDetail = (props) => {
     <Layout>
       <div className="post-detail-div">
         <h1>{post.title}</h1>
-        <img className="post-detail-image" src={post.imgURL} alt={post.title} />
+        {post.imgURL.includes('https') ? <img className="post-detail-image" src={post.imgURL} alt={post.title} /> : null}
         <p>{post.content}</p>
         <em>{post.username}</em>
         <p>{post.hashtags}</p>

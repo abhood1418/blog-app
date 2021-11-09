@@ -1,30 +1,38 @@
 // Dayanna 
 import { useState } from "react";
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { createPost } from "../../services/posts"
 import Layout from "../../components/Layout/Layout"
 
 const PostCreate = (props) => {
   const [post, setPost] = useState({
-    username: props.user,
+    username: props.user.username,
     title: '',
     imgURL: '',
     content: '',
     hashtags: '',
-})
+  })
 
-const [isCreated, setCreated] = useState(false)
+  const [isCreated, setCreated] = useState(false)
 
-const handleChange = (event) => {
-const { name, value } = event.target
-setPost({
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setPost({
         ...post,
         [name]: value
-})
-}
-if (isCreated) {
-  return <Redirect to={`/posts`} />
-}
+    })
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const created = await createPost(post)
+    setCreated({ created })
+  }
+
+  if (isCreated) {
+    return <Navigate to={`/posts`} />
+  }
+
   return (
     // <h1>This is PostCreate</h1>
     <Layout>
@@ -41,7 +49,7 @@ if (isCreated) {
         <input
             className="input-title"
             placeholder='Title'
-            value={product.title}
+            value={post.title}
             name='title'
             required
             onChange={handleChange}
@@ -50,7 +58,7 @@ if (isCreated) {
             className="textarea-content"
             rows={10}
             placeholder='content'
-            value={product.content}
+            value={post.content}
             name='content'
             required
             onChange={handleChange}
@@ -58,7 +66,7 @@ if (isCreated) {
         <input
             className="input-image-link"
             placeholder='Image Link'
-            value={product.imgURL}
+            value={post.imgURL}
             name='imgURL'
             required
             onChange={handleChange}
@@ -66,7 +74,7 @@ if (isCreated) {
         <input
             className="input-hashtags"
             placeholder='Image Link'
-            value={product.imgURL}
+            value={post.imgURL}
             name='imgURL'
             required
             onChange={handleChange}

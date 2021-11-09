@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
 import { useParams, Link } from 'react-router-dom';
 import { getPost, deletePost } from '../../services/posts';
-import Comments from '../../components/Comments/Comments.js'
+import Comments from '../../components/Comments/Comments.jsx'
+import PostEdit from '../PostEdit/PostEdit';
 
 
 const PostDetail = (props) => {
@@ -34,9 +35,9 @@ const PostDetail = (props) => {
         <em>{post.username}</em>
         <p>{post.hashtags}</p>
         <section className="conditional-edit-delete-btn">
-        {user === post.username ? <PostEdit /> && <button onClick={() => deletePost(post.id)}>Delete</button> : null}
+        {props.user.username === post.username ? <PostEdit /> && <button onClick={() => deletePost(post.id)}>Delete</button> : null}
         </section>
-        <Comments />
+        <Comments post={post}/>
       </div>
     </Layout>
   )

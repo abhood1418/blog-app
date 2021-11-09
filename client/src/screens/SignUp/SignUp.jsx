@@ -1,9 +1,9 @@
 // Darryl
 import { useState } from 'react'
-import {Link, Redirect} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
 import { createUser, getUsers } from '../../services/users'
 
-const SignUp = ({setUser, setLoggedIn}) => {
+const SignUp = ({setUser, setLoggedIn, user}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
@@ -23,9 +23,7 @@ const SignUp = ({setUser, setLoggedIn}) => {
     }
     const newUserAccount = await createUser(user)
     setUser(newUserAccount)
-      .then(
-      setLocalStorage()
-    )
+    setLocalStorage()
   }
 
   const check = (nameCheck) => {
@@ -41,8 +39,8 @@ const SignUp = ({setUser, setLoggedIn}) => {
 
   const checkUsername = async () => {
     const res = await getUsers()
-    const nameCheck = res.data.find((user) => user.username === username)
-      .then(check(nameCheck))
+    const nameCheck = res.find((user) => user.username === username)
+    check(nameCheck)
   }
 
   const handleSubmit = (ev) => {
@@ -51,23 +49,23 @@ const SignUp = ({setUser, setLoggedIn}) => {
   }
 
   if (redirect === true) {
-    return <Redirect to='/'/>
+    return <Navigate to='/'/>
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit(ev)}>
+      <form onSubmit={(ev) => handleSubmit(ev)}>
         <label>Username: </label>
-        <input placeHolder='Username' value={username} onChange={(ev) => setUsername(ev.target.value)} />
+        <input placeholder='Username' value={username} onChange={(ev) => setUsername(ev.target.value)} />
         <br />
         <label>Password: </label>
-        <input type='password' placeHolder='Password' value={password} onChange={(ev) => setPassword(ev.target.value)} />
+        <input type='password' placeholder='Password' value={password} onChange={(ev) => setPassword(ev.target.value)} />
         <br />
         <label>Name: </label>
-        <input placeHolder='Name' value={name} onchange={(ev) => setName(ev.target.value)}/>
+        <input placeholder='Name' value={name} onChange={(ev) => setName(ev.target.value)}/>
         <br/>
         <label>Profile Picture: </label>
-        <input placeHolder='Image URL' value={imgURL} onChange={(ev) => setImgURL(ev.target.value)}/>
+        <input placeholder='Image URL' value={imgURL} onChange={(ev) => setImgURL(ev.target.value)}/>
         <br/>
         <input type='submit'/>
       </form>

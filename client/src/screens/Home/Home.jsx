@@ -1,5 +1,6 @@
 // Andrew H.
-import Layout from '../../components/Layout/Layout'
+import Layout from '../../components/Layout/Layout.jsx'
+import PostCards from '../../components/PostCards/PostCards.jsx'
 
 const Home = () => {
   return (

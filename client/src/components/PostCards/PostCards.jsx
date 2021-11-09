@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './PostCards.css'
-import PostCard from '../PostCard/PostCard'
+import PostCard from '../PostCard/PostCard.jsx'
 import { getPosts } from '../../services/posts'
 
 const PostCards = () => {
@@ -16,8 +16,7 @@ const PostCards = () => {
 
   const CARDS = posts
     .reverse()
-    .map((post, index) =>
-      index < 8 ? (
+    .map((post) =>
         <PostCard
           _id={post._id}
           username={post.username}
@@ -25,13 +24,12 @@ const PostCards = () => {
           imgURL={post.imgURL}
           content={post.content}
           hashtags={post.hashtags}
-          comments={post.comments}
-          key={index}
+          // comments={post.comments}
+          key={post._id}
         />
-      ) : null
-    )
+      )
 
-       
+    
     // <div>{props.username}</div> 
     // <div>{props.title}</div> 
     // <img  src={props.imgURL} alt={props.title} /> 

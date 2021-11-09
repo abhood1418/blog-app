@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { getUser, getUsers } from '../../services/users'
 import { Link } from 'react-router-dom'
+import './SignIn.css'
 
 const SignIn = ({user, setUser, loggedIn, setLoggedIn}) => {
   const [usernameInput, setUsernameInput] = useState('')
@@ -48,8 +49,8 @@ const SignIn = ({user, setUser, loggedIn, setLoggedIn}) => {
   // },[])
 
   return (
-    <div>
-      <form onSubmit={(ev) => handleSubmit(ev)}>
+    <div className='signIn-display-div'>
+      <form onSubmit={(ev) => handleSubmit(ev)} className='signIn-form'>
         <label>Username: </label>
         <input placeholder='Username' value={usernameInput} onChange={(ev) => setUsernameInput(ev.target.value)} />
         <br />

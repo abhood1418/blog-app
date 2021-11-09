@@ -32,3 +32,13 @@
   font-style:italic;
   color:blue;
 }
+
+.comments-section {
+  margin: auto;
+  text-align: center;
+  background-color: white;
+  width: 800px;
+  border: solid 1px black;
+  border-radius: 16px;
+  box-shadow: 0 17px 9px -7px rgb(0 0 0 / 35%);
+}

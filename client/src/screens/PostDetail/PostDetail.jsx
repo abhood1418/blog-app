@@ -32,6 +32,7 @@ const PostDetail = (props) => {
       <div className="full-page">
         <section className="post-detail-div">
           <h5 className="user-header">{post.username}</h5>
+          {/* <img src={users.imageURL}/> */}
           <hr />
         <img className="post-detail-image" src={post.imgURL} alt={post.title} />
         <section className="text-sect">
@@ -43,7 +44,7 @@ const PostDetail = (props) => {
         <section className="conditional-edit-delete-btn">
         {props.user.username === post.username ? <PostEdit /> && <button onClick={() => deletePost(post.id)}>Delete</button> : null}
         </section>
-        <section>
+        <section className="comments-section">
         <Comments post={post}/>
         </section>
       </div>

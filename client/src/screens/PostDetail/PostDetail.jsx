@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getPost, deletePost } from '../../services/posts';
 import Comments from '../../components/Comments/Comments.jsx'
 import PostEdit from '../PostEdit/PostEdit';
+import './PostDetail.css'
 
 
 const PostDetail = (props) => {
@@ -23,21 +24,28 @@ const PostDetail = (props) => {
   }, [id])
 
   if (!isLoaded) {
-    return <h1>Fetching Post...</h1>
+    return <h1 className="fetching">Fetching Post...</h1>
   }
   
   return (
     <Layout>
-      <div className="post-detail-div">
-        <h1>{post.title}</h1>
+      <div className="full-page">
+        <section className="post-detail-div">
+          <h5 className="user-header">{post.username}</h5>
+          <hr />
         <img className="post-detail-image" src={post.imgURL} alt={post.title} />
+        <section className="text-sect">
+        <h1>{post.title}</h1>
         <p>{post.content}</p>
-        <em>{post.username}</em>
-        <p>{post.hashtags}</p>
+        <p className="hashtags">{post.hashtags}</p>
+        </section>
+        </section>
         <section className="conditional-edit-delete-btn">
         {props.user.username === post.username ? <PostEdit /> && <button onClick={() => deletePost(post.id)}>Delete</button> : null}
         </section>
+        <section>
         <Comments post={post}/>
+        </section>
       </div>
     </Layout>
   )
